@@ -1,3 +1,7 @@
 name = "google-generativelanguage-proxy"
 main = "src/index.js"
 compatibility_date = "2023-12-22"
+
+[observability]
+enabled = true
+head_sampling_rate = 1
