@@ -13,6 +13,15 @@ async function handleRequest(request) {
 			redirect: 'manual'
 	}
 
+	console.log("[INFO] Forwarded request:", JSON.stringify(request, null, 2))
+	console.log("[INFO] Params:", JSON.stringify({
+		method: request.method,
+		url: targetURL.toString(),
+		headers: Object.fromEntries(request.headers.entries()),
+		body: request.body,
+		targetURL: targetURL.toString()
+	}))
+
 	// Forward the request to the target URL and return the response directly.
 	return fetch(targetURL, init)
 }
