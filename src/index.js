@@ -23,5 +23,11 @@ async function handleRequest(request) {
 	}))
 
 	// Forward the request to the target URL and return the response directly.
-	return fetch(targetURL, init)
+	const reqP = fetch(targetURL, init)
+	
+	reqP.then(response => {
+		console.log("[INFO] Response status:", response.status)
+		console.log("[INFO] Response headers:", Object.fromEntries(response.headers.entries()))
+	})
+	return reqP
 }
